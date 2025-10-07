@@ -108,7 +108,7 @@ describe('Response', function () {
     test('handles malformed JSON gracefully', function () {
         $response = new Response(200, 'not-json');
 
-        expect(fn() => $response->json())->toThrow(\JsonException::class);
+        expect(fn () => $response->json())->toThrow(\JsonException::class);
     });
 
     test('can access data from JSON:API response', function () {

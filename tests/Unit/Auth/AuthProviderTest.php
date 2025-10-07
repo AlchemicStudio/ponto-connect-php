@@ -53,7 +53,7 @@ describe('AuthProvider', function () {
         $tokenStorage = Mockery::mock(TokenStorage::class);
         $authProvider = new AuthProvider('client-id', 'secret', 'https://api.test.com', $tokenStorage);
 
-        expect(fn() => $authProvider->getAuthorizationUrl('', 'challenge'))
+        expect(fn () => $authProvider->getAuthorizationUrl('', 'challenge'))
             ->toThrow(ValidationException::class);
     });
 
@@ -61,7 +61,7 @@ describe('AuthProvider', function () {
         $tokenStorage = Mockery::mock(TokenStorage::class);
         $authProvider = new AuthProvider('client-id', 'secret', 'https://api.test.com', $tokenStorage);
 
-        expect(fn() => $authProvider->getAuthorizationUrl('https://example.com/callback', ''))
+        expect(fn () => $authProvider->getAuthorizationUrl('https://example.com/callback', ''))
             ->toThrow(ValidationException::class);
     });
 
@@ -135,7 +135,7 @@ describe('AuthProvider', function () {
 
         $authProvider = new AuthProvider('client-id', 'secret', 'https://api.test.com', $tokenStorage);
 
-        expect(fn() => $authProvider->getAccessToken())
+        expect(fn () => $authProvider->getAccessToken())
             ->toThrow(AuthenticationException::class);
     });
 
@@ -199,14 +199,14 @@ describe('AuthProvider', function () {
     test('validates client credentials on instantiation', function () {
         $tokenStorage = Mockery::mock(TokenStorage::class);
 
-        expect(fn() => new AuthProvider('', 'secret', 'https://api.test.com', $tokenStorage))
+        expect(fn () => new AuthProvider('', 'secret', 'https://api.test.com', $tokenStorage))
             ->toThrow(ValidationException::class);
     });
 
     test('validates base URL format', function () {
         $tokenStorage = Mockery::mock(TokenStorage::class);
 
-        expect(fn() => new AuthProvider('client-id', 'secret', 'invalid-url', $tokenStorage))
+        expect(fn () => new AuthProvider('client-id', 'secret', 'invalid-url', $tokenStorage))
             ->toThrow(ValidationException::class);
     });
 

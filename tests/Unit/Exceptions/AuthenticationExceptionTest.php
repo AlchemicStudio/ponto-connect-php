@@ -13,12 +13,12 @@ describe('AuthenticationException', function () {
     });
 
     test('can be thrown and caught', function () {
-        expect(fn() => throw new AuthenticationException('Invalid token'))
+        expect(fn () => throw new AuthenticationException('Invalid token'))
             ->toThrow(AuthenticationException::class, 'Invalid token');
     });
 
     test('can be caught as PontoException', function () {
-        expect(fn() => throw new AuthenticationException('Auth error'))
+        expect(fn () => throw new AuthenticationException('Auth error'))
             ->toThrow(PontoException::class);
     });
 

@@ -1,7 +1,7 @@
 <?php
 
-use AlchemicStudio\PontoConnect\Exceptions\ValidationException;
 use AlchemicStudio\PontoConnect\Exceptions\PontoException;
+use AlchemicStudio\PontoConnect\Exceptions\ValidationException;
 
 describe('ValidationException', function () {
     test('can be instantiated', function () {
@@ -12,7 +12,7 @@ describe('ValidationException', function () {
     });
 
     test('can be thrown and caught', function () {
-        expect(fn() => throw new ValidationException('Invalid input'))
+        expect(fn () => throw new ValidationException('Invalid input'))
             ->toThrow(ValidationException::class, 'Invalid input');
     });
 
@@ -83,7 +83,7 @@ describe('ValidationException', function () {
     });
 
     test('can be caught as PontoException', function () {
-        expect(fn() => throw new ValidationException('Invalid data'))
+        expect(fn () => throw new ValidationException('Invalid data'))
             ->toThrow(PontoException::class);
     });
 });

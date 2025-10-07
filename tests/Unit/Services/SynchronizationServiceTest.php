@@ -1,8 +1,8 @@
 <?php
 
-use AlchemicStudio\PontoConnect\Services\SynchronizationService;
 use AlchemicStudio\PontoConnect\Http\HttpClient;
 use AlchemicStudio\PontoConnect\Http\Response;
+use AlchemicStudio\PontoConnect\Services\SynchronizationService;
 
 describe('SynchronizationService', function () {
     test('can be instantiated with HttpClient', function () {
@@ -70,7 +70,7 @@ describe('SynchronizationService', function () {
         $httpClient = Mockery::mock(HttpClient::class);
         $service = new SynchronizationService($httpClient);
 
-        expect(fn() => $service->create('invalid-type', 'res-123', 'subtype'))
+        expect(fn () => $service->create('invalid-type', 'res-123', 'subtype'))
             ->toThrow(\InvalidArgumentException::class);
     });
 
@@ -78,7 +78,7 @@ describe('SynchronizationService', function () {
         $httpClient = Mockery::mock(HttpClient::class);
         $service = new SynchronizationService($httpClient);
 
-        expect(fn() => $service->create('account', '', 'subtype'))
+        expect(fn () => $service->create('account', '', 'subtype'))
             ->toThrow(\InvalidArgumentException::class);
     });
 
@@ -86,7 +86,7 @@ describe('SynchronizationService', function () {
         $httpClient = Mockery::mock(HttpClient::class);
         $service = new SynchronizationService($httpClient);
 
-        expect(fn() => $service->get(''))
+        expect(fn () => $service->get(''))
             ->toThrow(\InvalidArgumentException::class);
     });
 

@@ -1,11 +1,9 @@
 <?php
 
-use AlchemicStudio\PontoConnect\Http\HttpClient;
-use AlchemicStudio\PontoConnect\Http\Response;
 use AlchemicStudio\PontoConnect\Auth\AuthProvider;
+use AlchemicStudio\PontoConnect\Http\HttpClient;
 use AlchemicStudio\PontoConnect\Http\RequestSigner;
-use AlchemicStudio\PontoConnect\Exceptions\ApiException;
-use AlchemicStudio\PontoConnect\Exceptions\NetworkException;
+use AlchemicStudio\PontoConnect\Http\Response;
 
 describe('HttpClient', function () {
     test('can be instantiated with required parameters', function () {
@@ -269,7 +267,7 @@ describe('HttpClient', function () {
     test('validates base URL format', function () {
         $authProvider = Mockery::mock(AuthProvider::class);
 
-        expect(fn() => new HttpClient(
+        expect(fn () => new HttpClient(
             'invalid-url',
             '/path/to/cert.pem',
             '/path/to/key.pem',

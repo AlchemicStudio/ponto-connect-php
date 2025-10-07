@@ -1,9 +1,9 @@
 <?php
 
-use AlchemicStudio\PontoConnect\Services\AccountService;
 use AlchemicStudio\PontoConnect\Http\HttpClient;
 use AlchemicStudio\PontoConnect\Http\Response;
 use AlchemicStudio\PontoConnect\Models\Account;
+use AlchemicStudio\PontoConnect\Services\AccountService;
 use AlchemicStudio\PontoConnect\Utils\Pagination;
 
 describe('AccountService', function () {
@@ -74,7 +74,7 @@ describe('AccountService', function () {
         $httpClient = Mockery::mock(HttpClient::class);
         $service = new AccountService($httpClient);
 
-        expect(fn() => $service->get(''))
+        expect(fn () => $service->get(''))
             ->toThrow(\InvalidArgumentException::class);
     });
 
@@ -100,7 +100,7 @@ describe('AccountService', function () {
         $httpClient = Mockery::mock(HttpClient::class);
         $service = new AccountService($httpClient);
 
-        expect(fn() => $service->list(['page[limit]' => 150]))
+        expect(fn () => $service->list(['page[limit]' => 150]))
             ->toThrow(\InvalidArgumentException::class);
     });
 

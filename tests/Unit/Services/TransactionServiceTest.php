@@ -1,9 +1,9 @@
 <?php
 
-use AlchemicStudio\PontoConnect\Services\TransactionService;
 use AlchemicStudio\PontoConnect\Http\HttpClient;
 use AlchemicStudio\PontoConnect\Http\Response;
 use AlchemicStudio\PontoConnect\Models\Transaction;
+use AlchemicStudio\PontoConnect\Services\TransactionService;
 use AlchemicStudio\PontoConnect\Utils\Pagination;
 
 describe('TransactionService', function () {
@@ -73,7 +73,7 @@ describe('TransactionService', function () {
     test('validates account ID on instantiation', function () {
         $httpClient = Mockery::mock(HttpClient::class);
 
-        expect(fn() => new TransactionService($httpClient, ''))
+        expect(fn () => new TransactionService($httpClient, ''))
             ->toThrow(\InvalidArgumentException::class);
     });
 
@@ -81,7 +81,7 @@ describe('TransactionService', function () {
         $httpClient = Mockery::mock(HttpClient::class);
         $service = new TransactionService($httpClient, 'acc-123');
 
-        expect(fn() => $service->get(''))
+        expect(fn () => $service->get(''))
             ->toThrow(\InvalidArgumentException::class);
     });
 })->after(function () {

@@ -42,7 +42,7 @@ class Pagination implements \Iterator, \Countable
 
     public function getNextCursor(): ?string
     {
-        if (!$this->hasNext()) {
+        if (! $this->hasNext()) {
             return null;
         }
 
@@ -51,7 +51,7 @@ class Pagination implements \Iterator, \Countable
 
     public function getPreviousCursor(): ?string
     {
-        if (!$this->hasPrevious()) {
+        if (! $this->hasPrevious()) {
             return null;
         }
 
@@ -116,7 +116,7 @@ class Pagination implements \Iterator, \Countable
     private function extractCursorFromUrl(string $url, string $paramName): ?string
     {
         $parsed = parse_url($url);
-        if (!isset($parsed['query'])) {
+        if (! isset($parsed['query'])) {
             return null;
         }
 

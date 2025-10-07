@@ -12,7 +12,7 @@ describe('ApiException', function () {
     });
 
     test('can be thrown and caught', function () {
-        expect(fn() => throw new ApiException('API request failed'))
+        expect(fn () => throw new ApiException('API request failed'))
             ->toThrow(ApiException::class, 'API request failed');
     });
 
@@ -105,7 +105,7 @@ describe('ApiException', function () {
     });
 
     test('can be caught as PontoException', function () {
-        expect(fn() => throw new ApiException('API error'))
+        expect(fn () => throw new ApiException('API error'))
             ->toThrow(PontoException::class);
     });
 

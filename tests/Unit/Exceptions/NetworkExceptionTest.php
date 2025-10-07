@@ -12,7 +12,7 @@ describe('NetworkException', function () {
     });
 
     test('can be thrown and caught', function () {
-        expect(fn() => throw new NetworkException('Connection failed'))
+        expect(fn () => throw new NetworkException('Connection failed'))
             ->toThrow(NetworkException::class, 'Connection failed');
     });
 
@@ -92,7 +92,7 @@ describe('NetworkException', function () {
     });
 
     test('can be caught as PontoException', function () {
-        expect(fn() => throw new NetworkException('Network error'))
+        expect(fn () => throw new NetworkException('Network error'))
             ->toThrow(PontoException::class);
     });
 

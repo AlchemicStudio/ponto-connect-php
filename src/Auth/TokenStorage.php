@@ -30,11 +30,11 @@ class TokenStorage
 
     public function isExpired(): bool
     {
-        if (!$this->has()) {
+        if (! $this->has()) {
             return true;
         }
 
-        if (!isset($this->tokenData['expires_at'])) {
+        if (! isset($this->tokenData['expires_at'])) {
             return false;
         }
 

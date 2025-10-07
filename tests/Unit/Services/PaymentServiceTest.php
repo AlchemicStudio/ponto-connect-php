@@ -1,9 +1,9 @@
 <?php
 
-use AlchemicStudio\PontoConnect\Services\PaymentService;
 use AlchemicStudio\PontoConnect\Http\HttpClient;
 use AlchemicStudio\PontoConnect\Http\Response;
 use AlchemicStudio\PontoConnect\Models\Payment;
+use AlchemicStudio\PontoConnect\Services\PaymentService;
 
 describe('PaymentService', function () {
     test('can be instantiated with HttpClient and account ID', function () {
@@ -75,7 +75,7 @@ describe('PaymentService', function () {
         $httpClient = Mockery::mock(HttpClient::class);
         $service = new PaymentService($httpClient, 'acc-123');
 
-        expect(fn() => $service->create([]))
+        expect(fn () => $service->create([]))
             ->toThrow(\InvalidArgumentException::class);
     });
 
@@ -116,7 +116,7 @@ describe('PaymentService', function () {
     test('validates account ID on instantiation', function () {
         $httpClient = Mockery::mock(HttpClient::class);
 
-        expect(fn() => new PaymentService($httpClient, ''))
+        expect(fn () => new PaymentService($httpClient, ''))
             ->toThrow(\InvalidArgumentException::class);
     });
 })->after(function () {

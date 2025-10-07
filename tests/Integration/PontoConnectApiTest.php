@@ -1,13 +1,12 @@
 <?php
 
-use AlchemicStudio\PontoConnect\Client;
 use AlchemicStudio\PontoConnect\Auth\AuthProvider;
 use AlchemicStudio\PontoConnect\Auth\TokenStorage;
-use AlchemicStudio\PontoConnect\Http\HttpClient;
+use AlchemicStudio\PontoConnect\Client;
 use AlchemicStudio\PontoConnect\Services\AccountService;
-use AlchemicStudio\PontoConnect\Services\TransactionService;
 use AlchemicStudio\PontoConnect\Services\PaymentService;
 use AlchemicStudio\PontoConnect\Services\SynchronizationService;
+use AlchemicStudio\PontoConnect\Services\TransactionService;
 
 describe('Ponto Connect API Integration', function () {
     test('can initialize client with configuration', function () {
@@ -85,7 +84,7 @@ describe('Ponto Connect API Integration', function () {
     });
 
     test('validates required configuration parameters', function () {
-        expect(fn() => new Client([]))
+        expect(fn () => new Client([]))
             ->toThrow(\InvalidArgumentException::class);
     });
 
@@ -98,7 +97,7 @@ describe('Ponto Connect API Integration', function () {
             'key_path' => '/key.pem',
         ];
 
-        expect(fn() => new Client($config))
+        expect(fn () => new Client($config))
             ->toThrow(\InvalidArgumentException::class);
     });
 
@@ -111,7 +110,7 @@ describe('Ponto Connect API Integration', function () {
             'key_path' => '/key.pem',
         ];
 
-        expect(fn() => new Client($config))
+        expect(fn () => new Client($config))
             ->toThrow(\InvalidArgumentException::class);
     });
 });
@@ -184,7 +183,7 @@ describe('Complete API Workflow', function () {
 
 describe('Error Handling Integration', function () {
     test('client handles missing configuration gracefully', function () {
-        expect(fn() => new Client(['client_id' => 'test']))
+        expect(fn () => new Client(['client_id' => 'test']))
             ->toThrow(\InvalidArgumentException::class);
     });
 
@@ -199,7 +198,7 @@ describe('Error Handling Integration', function () {
 
         $client = new Client($config);
 
-        expect(fn() => $client->transactions(''))
+        expect(fn () => $client->transactions(''))
             ->toThrow(\InvalidArgumentException::class);
     });
 });

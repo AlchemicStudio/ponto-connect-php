@@ -1,7 +1,6 @@
 <?php
 
 use AlchemicStudio\PontoConnect\Utils\Pagination;
-use AlchemicStudio\PontoConnect\Http\HttpClient;
 
 describe('Pagination', function () {
     test('can be instantiated with data and metadata', function () {

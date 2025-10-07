@@ -8,6 +8,8 @@ Implementation of the [Ponto Connect API](https://documentation.ibanity.com/pont
 
 ## /!\ This package is still in development. /!\
 
+You can find the developpement documentation [here](docs/developpement.md)
+
 ## Installation
 
 You can install the package via composer:

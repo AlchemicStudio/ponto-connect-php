@@ -18,8 +18,9 @@
         "php": "^8.4"
     },
     "require-dev": {
-        "pestphp/pest": "^4.0",
         "friendsofphp/php-cs-fixer": "^3.21.1",
+        "mockery/mockery": "^1.6",
+        "pestphp/pest": "^4.0",
         "spatie/ray": "^1.28"
     },
     "autoload": {
